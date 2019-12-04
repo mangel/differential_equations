@@ -1,0 +1,174 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+
+\DeclareMathOperator{\atan}{arctan}
+
+\title{Ejercicios I}
+\author{Miguel A. Gomez B.}
+
+\begin{document}
+	\maketitle
+\paragraph{1.} Verificar que las funciones sean solución de cada una de las ecuaciones diferenciales.
+
+\paragraph{a.} $\frac{dy}{dt} + 20y = 24$, con $y = \frac{6}{5} - \frac{6}{5} e^{-20t}$.
+
+\paragraph{Solución.}
+
+$$y' = 24e^{-20t},$$
+reemplazamos en la ecuacion diferencial para verificar:
+\begin{align*}
+	\frac{dy}{dt} + 20y &= 24e^{-20t} + 20\left(\frac{6}{5} - \frac{6}{5} e^{-20t}\right)\\
+	&= 24e^{-20t} + 24 - 24e^{-20t}\\
+	&= 24 
+\end{align*}
+por lo tanto $y$ es solución.
+\paragraph{b.} $y'' - 6y' + 13y = 0$, con $y = e^{3x} \cos{(2x)}$.
+$$y' = 3e^{2x}\cos{(2x)} - 2e^{2x}\sin{(2x)}$$
+y
+\begin{align*}
+	y'' &= 9e^{3x}\cos{(2x)} - 6e^{3x}\sin{(2x)} - 6e^{3x}\sin{(2x)} - 4e^{3x}\cos{(2x)}\\
+	&= 5e^{3x}\cos{(2x)} - 12e^{3x}\sin{(2x)}
+\end{align*}
+reemplazamos en la ecuación diferencial para verificar en la ecuación original:
+$$y'' - 6y' + 13y = 0$$
+operando obtenemos los términos que posteriormente sumamos:
+
+\[
+	\begin{array}{c c}
+		  5e^{3x}\cos{(2x)}   & - 12e^{3x}\sin{(2x)} \\
+		- 18e^{3x}\cos{(2x)} & + 12e^{3x}\sin{(2x)} \\
+		+ 38e^{3x}\cos{(2x)} &\\
+		\hline
+		\multicolumn{2}{c}{0}
+	\end{array}
+\]
+Vemos por lo tanto que $y$ es solución de la ecuación diferencial.
+\paragraph{c.} $y'' + y = \tan{(x}$, con $y = -(\cos{(x)}) \ln{(\sec{(x)} + \tan{(x)})}$.
+\begin{align*}
+	y' &= \sin{(x)} \ln{(\sec{(x)} + \tan{(x)})} - \cos{(x)} \sec{(x)}\\
+	&= \sin{(x)} \ln{(\sec{(x)} + \tan{(x)})} - 1
+\end{align*}
+y
+\begin{align*}
+	y'' &= \cos{(x)} \ln{(\sec{(x)} + \tan{(x)})} + \sin{(x)}\sec{(x)}\\
+	&= \cos{(x)} \ln{(\sec{(x)} + \tan{(x)})} + \tan{(x)}
+\end{align*}
+Verificamos:
+\[
+	\begin{array}{l l}
+		  \cos{(x)}\ln{(\sec{(x)} + \tan{(x)})} &  + \tan{(x)}\\
+		- \cos{(x)}\ln{(\sec{(x)} + \tan{(x)})} & \space\\
+		\hline
+		\multicolumn{2}{r}{\tan{(x)}}
+	\end{array}
+\]
+Vemos por tanto que $y$ es una solución.
+\paragraph{2.} Solucione las ecuaciones diferenciales de manera analítica.
+\paragraph{a.} $\frac{dQ}{dt} = k(Q - 70)$.
+\paragraph{Solución.} Utilizamos el método de variable separable.
+$$\frac{dQ}{dt} = k(Q - 70) \Rightarrow \frac{1}{k(Q-70)} dQ = dt$$
+Integrando, tenemos por separado que:
+\begin{align*}
+	\int \frac{1}{k(Q-70)} dQ &= \ln{(k(Q - 70))} + C_1
+\end{align*}
+\begin{align*}
+	\int dt = t + C_2
+\end{align*}
+de modo que ahora tenemos
+$$\ln{(k(Q - 70))} + C_1 = t + C_2 \Rightarrow \ln{(k(Q - 70))} = t + C_3$$
+con $C_3 = C_2 - C_1 $, utilizamos la función exponencial para hallar la inversa del logaritmo y despejar $Q$:
+\begin{align*}
+	k(Q - 70) &= e^{t + C_3} = e^t e^{C_3} = e^t C_4\\
+	Q &= \frac{e^t C_4 + 70}{k}
+\end{align*}
+con $C_4 = e^{C_3}$.
+\paragraph{} \textit{A partir de éste punto se asumirá C como la suma de las constantes de integración.}
+\paragraph{b.} $\frac{dy}{dx} = e^{3x + 2y}$.
+\paragraph{Solución.} Utilizamos el método de variable separable. Nótese que
+$e^{3x +2y} = e^{3x}e^{2y}$. Luego tenemos:
+$$\frac{dy}{dx} = e^{3x + 2y} = e^{3x} e^{2y},$$
+Realizando la separación de variables obtenemos:
+$$\frac{1}{e^{2y}} dy = e^{3x} dx,$$
+de modo que ahora integramos por separado,
+$$\int \frac{1}{e^{2y}} dy = -\frac{1}{2e^{2y}} + Q$$
+y
+$$\int e^{3x} dx = \frac{1}{3} e^{3x} + P,$$
+agrupando los dos resultados tenemos la igualdad
+$$-\frac{1}{2e^{2y}} = \frac{1}{3} e^{3x} + C$$
+Reorganizamos para despejar $y$,
+\begin{align*}
+	-\frac{1}{2e^{2y}} &= \frac{1}{3} e^{3x} + C\\
+	e^{2y} &= -\frac{3}{2e^{3x}} + C_1\\
+	2y &= e^{-\frac{3}{2e^{3x}}} C_2\\
+	y &= \frac{1}{2} e^{-\frac{3}{2e^{3x}}} C_2
+\end{align*}
+con $C_1 = \frac{1}{2C}$ y $C_2 = e^{C_1}$.
+\paragraph{c.} $\sin{(x)} dx + 2y \cos^{3}{(3x)} dy = 0$.
+\paragraph{Solución.} Reorganizamos la expresión para poder aplicar el método de variable separable,
+\begin{align*}
+	\sin{(x)} dx + 2y \cos^{3}{(3x)} dy &= 0\\
+	\frac{\sin{(3x)}}{\cos^{3}{3x}} dx &= -2y dy\\
+	\frac{\tan{(3x)}}{\cos^2{3x}} dx &= \\
+	\tan{(3x)} \sec^2{(3x)} &= -2ydy,
+\end{align*}
+Ahora integramos y reorganizamos la expresión para despejar en terminos de x,
+\begin{align*}
+	\int \tan{(3x)} \sec^2{(3x)} &= \int -2ydy\\
+	\frac{1}{6} \tan^2{3x} &= -y^2 + C\\
+	\tan^2{(3x)} &= 6(-y^2 + C)\\
+	\tan{(3x)} &= \sqrt{6(-y^2 + C)}\\
+	3x &= \atan{(\sqrt{6(-y^2 + C)})}\\
+	x &= \frac{1}{3} \atan{(\sqrt{6(-y^2 + C)})}.
+\end{align*}
+\paragraph{d.} $\frac{dy}{dx} = \left(\frac{2y + 3}{4x + 5}\right)^2$.
+\paragraph{Solución.} Reorganizamos la expresión,
+\begin{align*}
+	\frac{dy}{dx} &= \left(\frac{2y + 3}{4x + 5}\right)^2\\
+	\frac{1}{(2y + 3)^2}dy &= \frac{1}{(4x + 5)^2}dx,
+\end{align*}
+Integramos. Para ello utilizamos el método de sustitución, para el extremo izquierdo sustituimos $u = 2y + 3$ y en el derecho $v = 4x + 5$ y tenemos
+\begin{align*}
+	\frac{1}{2}\int \frac{1}{u^2}dy &= \frac{1}{4} \int \frac{1}{v^2}dv\\
+	\frac{1}{2}\int u^{-2}du &= \frac{1}{4} \int v^{-2} dv\\
+	- u^{-1} &= -\frac{1}{2} v^{-1} + C \\
+	u^{-1} &= \frac{1}{2} v^{-1} + C \\
+	u &= 2v + C^{-1} \\
+	2y + 3 &= 2(4x + 5) + C^{-1}\\
+	y &= \frac{1}{2}(8x + 10 - 3 + C^{-1})\\
+	y  &= \frac{1}{2}(8x + 7 + C^{-1}).\\
+\end{align*}
+
+\paragraph{e.} $\frac{dP}{dt} = P - P^{2}$.
+\paragraph{Solución.} Reorganizamos la expresión,
+\begin{align*}
+	\frac{dP}{dt} &= P - P^{2}\\
+	\frac{1}{P - P^{2}} dP &= dt\\
+	\frac{1}{P(1 - P)} dP &= dt
+\end{align*}
+ahora integramos la expresión,
+$$\int \frac{1}{P(1 - P)} dP = \int dt$$
+para ello utilizaremos el método de fracciones parciales, en el extremo izquierdo.
+\begin{align*}
+-\frac{1}{P(P-1)} &= -\frac{A}{P} - \frac{B}{P-1}\\
+1 &= A(P-1) + BP,
+\end{align*}
+si $P=0$, entonces $A=-1$. Si $P=1$, entonces $B = 1$ luego nuestra integral final toma la forma
+\begin{align*}
+\int \left( \frac{1}{P} - \frac{1}{P-1}\right) dP &= \int dt\\
+	\ln{(P)} - \ln{(P-1)} &= t + C\\
+	\ln{\left(\frac{P}{P-1}\right)} &= t + C\\
+	\frac{P}{P-1} &= e^{t+C}\\
+	P &= e^{t+C}(P-1)\\
+	P &= e^{t+C}P - e^{t+C}\\
+	P - e^{t+C}P &= - e^{t+C}\\
+	P(1 - e^{t+C}) &= - e^{t+C}\\
+	P &= - \frac{e^{t+C}}{1 - e^{t+C}}
+\end{align*}
+\end{document}
